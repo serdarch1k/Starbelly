@@ -15,9 +15,21 @@ routerAdmin.get("/logout", adminController.logout);
 routerAdmin.get("/check-me", adminController.checkAuthSession);
 
 /** Product Admin **/
-routerAdmin.get("/product/all", productController.getAllProducts);
-routerAdmin.post("/product/create", productController.createNewProduct);
-routerAdmin.post("/product/:id", productController.updateChosenProduct);
+routerAdmin.get(
+  "/product/all",
+  adminController.verifyAdmin,
+  productController.getAllProducts,
+);
+routerAdmin.post(
+  "/product/create",
+  adminController.verifyAdmin,
+  productController.createNewProduct,
+);
+routerAdmin.post(
+  "/product/:id",
+  adminController.verifyAdmin,
+  productController.updateChosenProduct,
+);
 
 /** User Admin **/
 
