@@ -5,6 +5,7 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
 
+// TCP2
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
@@ -19,9 +20,9 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(morgan(MORGAN_FORMAT));
+app.use(morgan(MORGAN_FORMAT)); // Log mehanizm
 
-/** 2-SESSIONS **/
+/** 2-SESSIONS integration **/
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
@@ -30,7 +31,7 @@ app.use(
     },
     store: store,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: true, // login bo'lmasdan ishlatgan userlarni ham saqlaydi
   }),
 );
 
