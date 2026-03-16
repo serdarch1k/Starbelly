@@ -4,6 +4,10 @@
   <div>
     <h3>PRODUCTS PAGE</h3>
     <div><%=member.memberNick%></div>
+
+    <% products.map((value, key) => { %>
+    <p><%= value.productName %> - <%= value.productSize %></p>
+    <% } ) %>
   </div>
 </body>
 
