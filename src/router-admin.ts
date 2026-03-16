@@ -33,7 +33,7 @@ routerAdmin.post(
   productController.createNewProduct,
 );
 routerAdmin.post(
-  "/product/:id",
+  "/product/:id", // params
   adminController.verifyAdmin,
   productController.updateChosenProduct,
 );
