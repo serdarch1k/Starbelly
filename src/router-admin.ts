@@ -39,5 +39,10 @@ routerAdmin.post(
 );
 
 /** User Admin **/
+routerAdmin.get(
+  "/user/all",
+  adminController.verifyAdmin,
+  adminController.getUsers,
+);
 
 export default routerAdmin;

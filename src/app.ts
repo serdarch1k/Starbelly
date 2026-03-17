@@ -35,7 +35,7 @@ app.use(
     saveUninitialized: true, // login bo'lmasdan ishlatgan userlarni ham saqlaydi
   }),
 );
-// global local variable
+// global variable
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
   res.locals.member = sessionInstance.member;
