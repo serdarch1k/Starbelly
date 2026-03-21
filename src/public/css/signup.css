@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%);
+  --body-font: "Poppins", sans-serif;
+  --h1-font-size: 1.75rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.813rem;
+  --font-medium: 500;
+  --font-bold: 600;
+
+  /* for bg style */
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --accent: #06b6d4;
+  --background: #030712;
+  --text: #f8fafc;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  overflow: hidden;
+}
+
+body,
+input,
+button {
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+body {
+  color: var(--white-color);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== SIGNUP ===============*/
+.signup__container {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.signup__form {
+  position: relative;
+  background-color: hsla(0, 0%, 10%, 0.1);
+  border: 2px solid var(--white-color);
+  margin-inline: 1.5rem;
+  padding: 1rem 2rem 0 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.signup__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 1.5rem;
+}
+
+.signup__content {
+  row-gap: 1.75rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signup__box {
+  display: grid;
+}
+
+.signup__box {
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  border-bottom: 2px solid var(--white-color);
+}
+
+.signup__icon,
+.signup__eye {
+  font-size: 1.25rem;
+}
+
+.signup__input {
+  width: 100%;
+  padding-block: 0.8rem;
+  background: none;
+  color: var(--white-color);
+  position: relative;
+  z-index: 1;
+}
+
+.signup__box-input {
+  position: relative;
+}
+
+.signup__label {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-weight: var(--font-medium);
+  transition:
+    top 0.3s,
+    font-size 0.3s;
+}
+
+.signup__eye {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.signup__box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+
+.signup__button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white-color);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.signup__button:hover {
+  background-color: #9ccdf5;
+}
+
+.signup__footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  font-size: 14px;
+  margin-top: 1rem;
+}
+
+/* go Back */
+.signup__goback a {
+  color: #5a8cf7;
+  font-weight: var(--font-bold);
+  margin-left: 3px;
+}
+
+.signup__goback a:hover {
+  text-decoration: underline;
+}
+
+/* go Login */
+.signup__login a {
+  color: #5a8cf7;
+  font-weight: var(--font-bold);
+  margin-left: 3px;
+}
+
+.signup__login a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus move up label */
+.signup__input:focus + .signup__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/* Input focus sticky top label */
+.signup__input:not(:placeholder-shown).signup__input:not(:focus)
+  + .signup__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/* Image */
+.signup__container .media-frame {
+  position: relative;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup__container .media-frame .upload-img-frame {
+  position: relative;
+  width: 230px;
+  height: 82%;
+  display: flex;
+  border-radius: 15px;
+  margin-right: 45px;
+}
+
+.signup__container .media-text {
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #d0d2dd;
+}
+
+.signup__container .upload-img-frame .delete-img {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  right: 5%;
+  top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+  border-radius: 8px;
+}
+
+.signup__container .media-frame .upload-container {
+  position: relative;
+  margin-right: -50px;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup__container .file-box {
+  padding: 0px;
+}
+
+.signup__container .file-box input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.signup__container .file-box label {
+  margin-bottom: 0px;
+  width: auto;
+  height: auto;
+  padding: 0 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #6a7a99;
+  border-radius: 0px 8px 8px 0px;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.signup__container .file-box .upload-name {
+  position: relative;
+  text-align: center;
+  width: 50%;
+  height: 55px;
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.signup__container .thumbnail-desc {
+  margin-top: 25px;
+  margin-bottom: 0;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #d0d2dd;
+}
+
+/* Input focus move up label */
+.signup__input:focus + .signup__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/* Input focus sticky top label */
+.signup__input:not(:placeholder-shown).signup__input:not(:focus)
+  + .signup__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/*===== BG STYLE =====*/
+.liquid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: orbFloat linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+  }
+}
