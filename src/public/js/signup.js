@@ -1,5 +1,28 @@
 console.log("Signup frontend javascript file");
 
+// Frontend Validation
+function validateSignupForm() {
+  const memberNick = $("#member-nick").val();
+  const memberPhone = $("#member-phone").val();
+  const memberPassword = $("#signup-pass").val();
+  const confirmPassword = $("#signup-repeat-pass").val();
+
+  if (
+    memberNick === "" ||
+    memberPhone === "" ||
+    memberPassword === "" ||
+    confirmPassword === ""
+  ) {
+    alert("Please insert all required inputs!");
+    return false;
+  }
+
+  if (memberPassword !== confirmPassword) {
+    alert("Password differs, please check!");
+    return false;
+  }
+}
+
 /**=============== SHOW HIDDEN - PASSWORD ===============**/
 const showHiddenPass = (signupPass, signupEye) => {
   const input = document.getElementById(signupPass),
