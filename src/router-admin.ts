@@ -22,19 +22,19 @@ routerAdmin.get("/check-me", adminController.checkAuthSession);
 /** Product Admin **/
 routerAdmin.get(
   "/product/all",
-  adminController.verifyAdmin,
+  // adminController.verifyAdmin,
   productController.getAllProducts,
 );
 routerAdmin.post(
   "/product/create",
-  adminController.verifyAdmin,
+  // adminController.verifyAdmin,
   // uploadProductImage.single("productImage"),
   makeUploader("products").array("productImages", 5),
   productController.createNewProduct,
 );
 routerAdmin.post(
   "/product/:id", // params
-  adminController.verifyAdmin,
+  // adminController.verifyAdmin,
   productController.updateChosenProduct,
 );
 
