@@ -29,10 +29,10 @@ $(function () {
 
 // Frontend Validation
 function validateSignupForm() {
-  const memberNick = $("#member-nick").val();
-  const memberPhone = $("#member-phone").val();
-  const memberPassword = $("#signup-pass").val();
-  const confirmPassword = $("#signup-repeat-pass").val();
+  const memberNick = $(".member-nick").val();
+  const memberPhone = $(".member-phone").val();
+  const memberPassword = $(".member-password").val();
+  const confirmPassword = $(".confirm-password").val();
 
   if (
     memberNick === "" ||

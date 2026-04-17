@@ -56,4 +56,6 @@
     Database validation
 */
 
-// enctype="multipart/form-data" => Turli xil fayl formatdagi malumotlarni formdan yuborishga ruhsat beradi.
+// "enctype"="multipart/form-data" => Turli xil fayl formatdagi malumotlarni formdan yuborishga ruhsat beradi.
+
+// "this" => kirib kelayotgan "input"
