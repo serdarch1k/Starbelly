@@ -1,13 +1,24 @@
 import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
-import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
+import {
+  AdminRequest,
+  LoginInput,
+  MemberInput,
+  SessionMember,
+} from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 
 const adminController: T = {};
+
+const toSessionMember = (member: { _id: unknown; memberType: MemberType; memberNick: string }): SessionMember => ({
+  _id: String(member._id),
+  memberType: member.memberType,
+  memberNick: member.memberNick,
+});
 // go Home
 adminController.goHome = (req: Request, res: Response) => {
   try {
@@ -55,7 +66,7 @@ adminController.processSignup = async (req: AdminRequest, res: Response) => {
     const result = await memberService.processSignup(newMember);
 
     // SESSIONS AUTHENTICATION
-    req.session.member = result;
+    req.session.member = toSessionMember(result);
     req.session.save(function () {
       res.redirect("/admin/product/all");
     });
@@ -78,7 +89,7 @@ adminController.processLogin = async (req: AdminRequest, res: Response) => {
     const result = await memberService.processLogin(input);
 
     // SESSIONS AUTHENTICATION
-    req.session.member = result;
+    req.session.member = toSessionMember(result);
     req.session.save(function () {
       res.redirect("/admin/product/all");
     });
@@ -153,15 +164,16 @@ adminController.verifyAdmin = (
   res: Response,
   next: NextFunction,
 ) => {
-  if (req.session?.member?.memberType === MemberType.ADMIN) {
-    req.member = req.session.member;
-    next();
-  } else {
-    const message = Message.NOT_AUTHENTICATED;
-    res.send(
-      `<script> alert("${message}"); window.location.replace('/admin/login'); </script>`,
-    );
+  const sessionMember = req.session?.member;
+  if (sessionMember?.memberType === MemberType.ADMIN) {
+    req.member = sessionMember;
+    return next();
   }
+
+  const message = Message.NOT_AUTHENTICATED;
+  return res.send(
+    `<script> alert("${message}"); window.location.replace('/admin/login'); </script>`,
+  );
 };
 
 export default adminController;

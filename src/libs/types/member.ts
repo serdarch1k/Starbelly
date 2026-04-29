@@ -18,6 +18,12 @@ export interface Member {
   updatedAt: Date;
 }
 
+export interface SessionMember {
+  _id: string;
+  memberType: MemberType;
+  memberNick: string;
+}
+
 export interface MemberInput {
   memberType?: MemberType;
   memberStatus?: MemberStatus;
@@ -47,8 +53,8 @@ export interface MemberUpdateInput {
 }
 
 export interface AdminRequest extends Request {
-  member: Member;
-  session: Session & { member: Member };
+  member?: SessionMember;
+  session: Session & { member?: SessionMember };
   file: Express.Multer.File;
   files: Express.Multer.File[];
 }
