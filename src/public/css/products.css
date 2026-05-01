@@ -1,3 +1,20 @@
+body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+:root {
+  /* for bg style */
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --accent: #06b6d4;
+  --background: #030712;
+  --text: #f8fafc;
+}
+
 .products-container {
   position: relative;
   width: auto;
@@ -6,7 +23,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
 }
 
 .products-container a {
@@ -15,7 +31,16 @@
 }
 
 .products-container .nav-item a {
-  color: #e3c08d;
+  color: rgba(248, 250, 252, 0.8);
+  transition: all 0.4s linear;
+}
+
+.products-container .nav-item a:hover {
+  color: #4375e1;
+}
+
+.products-container .nav-item .active {
+  color: #4375e1;
 }
 
 .products-container .nav-item a.disabled {
@@ -56,7 +81,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +105,25 @@
   font-size: 30px;
   line-height: 25px;
   color: #ffffff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 15px 30px;
+}
+
+.products-container .long-input .btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out 0.5s both;
 }
 
 .products-container .long-input {
@@ -91,11 +135,11 @@
   flex-direction: column;
 }
 
-.products-container .long-input label {
-  font-family: "Source Serif Pro";
+.products-container label {
+  font-family: "Segoe UI";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 25px;
   color: #ffffff;
 }
@@ -110,10 +154,10 @@
   background: #f7f7f7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  font-family: "GT Walsheim Pro";
+  font-family: "Segoe UI";
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 26px;
   color: #4f547b;
 }
@@ -123,15 +167,15 @@
   margin-top: 10px;
   padding: 20px;
   width: 100%;
-  height: 200px;
+  height: 100px;
   border: none;
   background: #f7f7f7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  font-family: "GT Walsheim Pro";
+  font-family: "Segoe UI";
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 26px;
   color: #4f547b;
 }
@@ -147,7 +191,7 @@
   background: #f7f7f7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  font-family: "GT Walsheim Pro";
+  font-family: "Segoe UI";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -171,7 +215,7 @@
   background: #f7f7f7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  font-family: "GT Walsheim Pro";
+  font-family: "Segoe UI";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -241,8 +285,8 @@
 
 .products-container .upload-img-box img {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 60%;
   display: block;
   border-radius: 10px;
 }
@@ -256,12 +300,12 @@
 
 .products-container .img-frame label {
   margin-top: 30px;
-  font-family: "Source Serif Pro";
+  font-family: "Segoe UI";
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 22px;
   line-height: 25px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .products-container #file {
@@ -285,6 +329,22 @@
   align-items: center;
 }
 
+.products-container .operation-buttons .btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out 0.5s both;
+}
+
 .products-container .spec-select {
   position: relative;
   padding: 0px 7px;
@@ -304,6 +364,20 @@
 table th {
   text-align: center;
   vertical-align: middle;
+  font-size: 19px;
+  color: #fff;
+}
+
+.products-container table tbody {
+  transition: all 0.2s linear;
+}
+
+.products-container table tbody:hover {
+  background-color: #4375e1;
+}
+
+.products-container table th {
+  font-weight: 700;
 }
 
 .products-container .switch {
@@ -363,4 +437,62 @@ table th {
 
 .products-container .slider.round:before {
   border-radius: 50%;
+}
+
+/*===== BG STYLE =====*/
+.liquid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: orbFloat linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+  }
 }

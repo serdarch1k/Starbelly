@@ -52,6 +52,10 @@ body {
   color: #4375e1;
 }
 
+.home-container .nav-item .active {
+  color: #4375e1;
+}
+
 .home-container .nav-item a.disabled {
   color: #898071;
 }

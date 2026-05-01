@@ -3,12 +3,15 @@
 <link rel="stylesheet" type="text/css" href="/css/users.css" />
 
 <body>
+  <!-- Background style -->
+  <canvas class="liquid-canvas"></canvas>
+
   <div class="users-container">
     <% if(!member) { %>
     <div class="navigation-menu">
       <ul class="nav justify-content-center">
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link active" href="/admin/">Home</a>
+          <a class="nav-link" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/signup">SignUp</a>
@@ -27,13 +30,13 @@
     <div class="navigation-menu">
       <ul class="nav justify-content-center">
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link active" href="/admin/">Home</a>
+          <a class="nav-link" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/product/all">Menu</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/user/all">Users</a>
+          <a class="nav-link active" href="/admin/user/all">Users</a>
         </li>
         <li
           class="nav-item"
@@ -51,7 +54,7 @@
           <span class="header-name" style="margin-bottom: 30px"
             >All Users List</span
           >
-          <table class="table table-hover table-sm">
+          <table class="table table-hover table-xl">
             <thead class="thead-light">
               <tr class="thead-light">
                 <th scope="col">No</th>
@@ -61,7 +64,7 @@
               </tr>
             </thead>
               <% users.map(function(value, index) { %>
-                <tbody style="background: white">
+                <tbody>
                   <td><%= index+1 %></td>
                   <td><%= value.memberNick %></td>
                   <td><%= value.memberPhone %></td>
